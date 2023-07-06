@@ -1,0 +1,1 @@
+Working with Authentiacatio Provider and using UserDetails and  Passwoird Encoder with DB.

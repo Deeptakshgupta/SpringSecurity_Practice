@@ -2,6 +2,7 @@ package com.L1_e1.security;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,7 +32,10 @@ public class SecurityUser implements UserDetails{
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// for time being provide the list of one granted Authority -> READ
 		
-		return List.of(() -> "read"); 
+		return user.getAuthorites()
+				.stream()
+				.map(SecurityAuthority :: new)
+				.collect(Collectors.toList());
 	}
 
 	@Override
