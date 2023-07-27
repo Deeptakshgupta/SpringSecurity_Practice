@@ -32,9 +32,7 @@ public class User {
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name ="user_authorities" ,
-	joinColumns=@JoinColumn(name= "user_id"),
-	inverseJoinColumns= @JoinColumn(name ="authortiy_id"))
-	
+	@JoinTable(name ="user_authorities" ,joinColumns=@JoinColumn(name= "user_id"),inverseJoinColumns= @JoinColumn(name ="authortiy_id"))
+	//join column represents the column name in the DB table to be mapped
 	private Set<Authority> authorites;
 }
